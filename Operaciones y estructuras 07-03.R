@@ -115,18 +115,22 @@ while (count < 10){
   count <- count +1
 }
 
-#Ejemplo con while
+#Ejemplo con while modificado con instrucciones de Nacho
 set.seed(1)
 z <- 5
+x <- vector("numeric")
 while(z>=3 && z <=10){
-  print(z)
   moneda <- rbinom(1,1,0.5) #(numero de aciertos en una cantidad de intentos,numero de intentos,probabilidad de exito)
+  x <- c(x,z)
   if(moneda==1){ #Caminata Aleatoria
      z <- z+1
   } else {
      z <- z-1
   }
 }
+print("Se realizaron"); print(contador); print("pasos");print(x)
+plot(x,type = "b") #Para graficar y que los ´puntos esten unidos por una linea
+
 
 vec <-
 set.seed(1)
@@ -145,7 +149,38 @@ while(z>=3 && z <=10){
 print("Se realizaron"); print(contador); print("pasos");print(vec)
 
 
+set.seed(1)
+con1 <- 0 
+con2 <- 0
+rep <- 10
+for(i in 1:rep){
+  z <- 6.5
+  x <- vector("numeric")
+  while(z>=3 && z <=10){
+    moneda <- rbinom(1,1,0.5) #(numero de aciertos en una cantidad de intentos,numero de intentos,probabilidad de exito)
+    x <- c(x,z)
+    if(moneda==1){ #Caminata Aleatoria
+      z <- z+1
+    } else {
+      z <- z-1
+    }
+  }
+  
+   if(z<3){
+     con1 <- con1 +1 
+   } else if (z > 10){
+     con2 <- con2+1
+   }
+}
+paste("En",rep,"intentos, se escapa",con1,"veces por abajo y",con2,"por arriba")
+paste("La probabilidad de que salir por abajo es",con1/rep)
 
 
 
+for(i in 1:10){
+  if(i<=20){
+    next
+  }
+  #otras operaciones
+}
 
